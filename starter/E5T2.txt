@@ -1,0 +1,28 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+
+Regula is a tool designed to scan IaC templates like Terraform and CloudFormation for security and compliance violations. 
+It can detect risky policies, such as overly permissive IAM roles or resource misconfigurations. 
+
+### Example vulnerability
+
+ An IAM role with an admin policy attached to non-essential resources, granting unnecessary privileges.
+
+##Scan AMI’s or containers for OS vulnerabilities
+
+Trivy is a comprehensive vulnerability scanner for containers and other artifacts like AMIs, detecting known vulnerabilities in OS packages and application dependencies. 
+It integrates well into CI/CD pipelines for early detection.
+
+### Example vulnerability
+
+An outdated OpenSSL package with known vulnerabilities, which could lead to man-in-the-middle (MITM) attacks or other exploits.
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+
+AWS Config monitors and evaluates AWS resource configurations for compliance against best practices and custom rules. 
+It helps identify misconfigured resources that might expose the environment to security risks.
+
+### Example vulnerability
+
+A security group allowing unrestricted inbound access (0.0.0.0/0) on sensitive ports, such as SSH or RDP, which could expose the system to unauthorized access attempts.

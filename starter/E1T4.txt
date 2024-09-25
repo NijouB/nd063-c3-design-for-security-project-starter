@@ -1,0 +1,11 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+
+EC2 Instance in Public Subnet with HTTP Load Balancer: The EC2 instance hosting the web application is placed in a public subnet behind a load balancer operating over HTTP, which exposes it to the public internet and makes it vulnerable to attacks. 
+A more secure design would involve placing the EC2 instance in a private subnet behind a load balancer operating on HTTPS, ensuring encrypted communication and reducing exposure.
+
+# Poor practice 2
+
+EC2-S3 Communication via Public Internet: The current design allows the EC2 instance to communicate with S3 through the public internet, which increases the risk of data exposure and attacks.
+A more secure setup would use a VPC endpoint for S3 access, allowing the communication to occur entirely within AWS’s private network, enhancing both security and performance.

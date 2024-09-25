@@ -1,0 +1,12 @@
+# Describe GuardDuty findings that were detected related to the brute force attack
+
+The GuardDuty finding UnauthorizedAccess:EC2/SSHBruteForce indicates that an EC2 instance with ID: i-02e8caa7ca0ce7292 has been identified as attempting unauthorized access through SSH brute-force attacks. 
+The target of these attacks is the Web Service Instance with the IP address 10.192.10.5.
+he report provides detailed insights into the brute force attempts, including the number of failed login attempts, the source IP, and relevant timestamps. It also illustrates the network setup, helping to pinpoint the origin of the attack and visualize its scope across the environment.
+
+
+# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+
+AWS GuardDuty detects brute-force attacks by analyzing VPC flow logs to monitor suspicious traffic patterns on port 22, which is used for SSH.
+GuardDuty uses these logs to identify unusual patterns, such as a high number of failed SSH login attempts over a short period of time, which is indicative of a brute-force attack. 
+By continuously monitoring network traffic, GuardDuty can correlate this behavior with known attack signatures and flag unauthorized attempts to access EC2 instances.

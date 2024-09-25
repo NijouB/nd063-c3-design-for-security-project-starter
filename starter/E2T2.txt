@@ -1,0 +1,10 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+Findings : 
+1. EC2 instances should not have a public IPv4 address : EC2 intances placed in public subnets having public IP should be placed in private subnets and accessed via Load Balancer or bastions.
+2. Security groups should not allow unrestricted access to ports with high risk : WebAppSG is allowing inbound access for SSH to all which should be the IP of one's host at the very least, 5000 traffic should allow the SG of the load balancer.
+3. Attached EBS volumes should be encrypted at-rest : Enable encryption for EBS volumes 
+4. Amazon EC2 should be configured to use VPC endpoints that are created for the Amazon EC2 service: configure VPC endpoint to allow EC2 instances in the VPC to privately access S3 without needing a public IP or routing traffic through the internet.
+5. Application Load Balancer should be configured to redirect all HTTP requests to HTTPS: Configure AWS ACM cert and configure the ALB to use it and redirect traffic HTTP to HTTPS

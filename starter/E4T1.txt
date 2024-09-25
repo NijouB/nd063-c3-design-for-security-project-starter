@@ -1,0 +1,11 @@
+
+
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+
+1. Place the Web Service Instance in a private subnet to eliminate direct access from the internet.
+2. Use Infrastructure as Code (IaC) to provision a bastion host on-demand, modifying the Web Service Instance’s security group to allow SSH access only from the bastion's security group.
+3. Automate the decommissioning of the bastion after use with Lambda or a configuration management tool, ensuring SSH access is only available when absolutely necessary.
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+
+Fine-tune the instance's IAM role to grant access only to the S3BucketRecipesFree bucket, strictly limiting permissions to necessary actions like s3:GetObject.
